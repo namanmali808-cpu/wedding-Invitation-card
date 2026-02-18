@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Create Wedding Invitation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/public/css/styles.css">
+  </head>
+  <body class="form-page">
+    <main class="container">
+      <h1 class="title">Create Your Premium Invitation</h1>
+      <form id="inviteForm" action="/create" method="post" enctype="multipart/form-data">
+        <div class="row">
+          <label>Groom’s name<input name="groom" required></label>
+          <label>Bride’s name<input name="bride" required></label>
+        </div>
+
+        <section class="events">
+          <h2>Events & Dates</h2>
+          <div id="eventsList"></div>
+          <button type="button" id="addEvent">+ Add event</button>
+        </section>
+
+        <label>Location text (venue)<input name="location_text"></label>
+        <label>Google Maps link<input name="location_map" placeholder="https://maps.google.com/... "></label>
+
+        <label class="photos">Upload photos (optional)
+          <input type="file" name="photos" id="photos" multiple accept="image/*">
+        </label>
+
+        <div class="actions">
+          <button type="submit" class="btn primary">Generate Invitation</button>
+        </div>
+      </form>
+      <p class="note">After submission you'll get a shareable link that shows only the invitation card.</p>
+    </main>
+
+    <script src="/public/js/form.js"></script>
+  </body>
+</html>

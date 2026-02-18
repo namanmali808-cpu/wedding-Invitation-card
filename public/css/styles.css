@@ -1,0 +1,46 @@
+:root{
+  --bg:#f6f3f1;
+  --card:#fffefc;
+  --accent:#b27b60;
+  --muted:#6b6b6b;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Montserrat,system-ui,Arial;background:linear-gradient(180deg,#fffaf8,var(--bg));color:#222}
+
+.container{max-width:900px;margin:36px auto;padding:30px}
+.title{font-family:Playfair Display,serif;font-size:28px;margin:0 0 16px}
+form label{display:block;margin:8px 0}
+form input[type="text"], form input[type="url"], form input[type="file"], form input{width:100%;padding:10px;border:1px solid #e6e2df;border-radius:8px;background:transparent}
+.row{display:flex;gap:12px}
+.row label{flex:1}
+.events h2{margin-top:20px}
+.events #eventsList{margin-bottom:10px}
+.btn{padding:12px 18px;border-radius:10px;border:none;cursor:pointer}
+.primary{background:var(--accent);color:#fff;font-weight:600}
+.note{color:var(--muted);margin-top:12px}
+
+/* Invite card styles */
+.invite-page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px;background:radial-gradient(circle at 10% 10%, rgba(178,123,96,0.06), transparent 10%), linear-gradient(180deg,#fffaf8,#f6f3f1);}
+.invite-card{position:relative;z-index:2;max-width:900px;width:100%;background:var(--card);border-radius:18px;padding:36px;box-shadow:0 10px 40px rgba(0,0,0,0.08);overflow:hidden}
+.hero{text-align:center;padding:6px 12px}
+.names{font-family:Playfair Display,serif;font-size:44px;margin:0;color:#2b2b2b}
+.names span{display:inline-block;margin:0 6px}
+.statement{color:var(--muted);margin-top:8px}
+.details{margin-top:20px;padding:12px}
+.events-list{list-style:none;padding:0;margin:0}
+.events-list li{padding:12px 0;border-top:1px solid #f0ebe8}
+.ev-meta{color:var(--muted);font-size:14px;margin-top:6px}
+.maplink{display:inline-block;margin-top:8px;color:var(--accent);text-decoration:none;font-weight:600}
+.gallery{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.gallery img{width:calc(33% - 6px);border-radius:10px;object-fit:cover;height:120px}
+.footer-note{text-align:center;color:var(--muted);margin-top:18px}
+
+/* petal canvas placeholder (positioning) */
+#petalCanvas{position:fixed;inset:0;pointer-events:none;z-index:1}
+
+/* Responsive */
+@media (max-width:700px){
+  .row{flex-direction:column}
+  .names{font-size:32px}
+  .gallery img{width:48%}
+}

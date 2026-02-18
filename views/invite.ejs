@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title><%= data.groom %> & <%= data.bride %> — Wedding Invitation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/public/css/styles.css">
+  </head>
+  <body class="invite-page">
+    <div id="petalCanvas"></div>
+    <main class="invite-card">
+      <section class="hero">
+        <h1 class="names"><span><%= data.groom %></span> & <span><%= data.bride %></span></h1>
+        <p class="statement">Together with their families, they invite you to celebrate their wedding</p>
+      </section>
+
+      <section class="details">
+        <% if (data.events && data.events.length) { %>
+          <h3>Events</h3>
+          <ul class="events-list">
+            <% data.events.forEach(function(ev){ %>
+              <li>
+                <strong><%= ev.title %></strong>
+                <div class="ev-meta"><%= ev.date %> <%= ev.time ? ('· ' + ev.time) : '' %></div>
+                <% if (ev.detail) { %><div class="ev-detail"><%= ev.detail %></div><% } %>
+              </li>
+            <% }) %>
+          </ul>
+        <% } %>
+
+        <% if (data.locationText) { %>
+          <div class="location">
+            <h4>Venue</h4>
+            <div><%= data.locationText %></div>
+            <% if (data.locationMapLink) { %>
+              <a class="maplink" href="<%= data.locationMapLink %>" target="_blank" rel="noopener">Open in Google Maps</a>
+            <% } %>
+          </div>
+        <% } %>
+      </section>
+
+      <% if (data.photos && data.photos.length) { %>
+        <section class="gallery">
+          <% data.photos.forEach(function(p){ %>
+            <img src="<%= p %>" alt="photo" loading="lazy">
+          <% }) %>
+        </section>
+      <% } %>
+
+      <footer class="footer-note">We look forward to celebrating with you</footer>
+    </main>
+
+    <script src="/public/js/petals.js"></script>
+  </body>
+</html>
